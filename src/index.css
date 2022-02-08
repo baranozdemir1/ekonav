@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@layer base {
+    html {
+        @apply font-montserrat;
+    }
+}
+@tailwind components;
+@tailwind utilities;
+
+* {
+    outline: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+input {
+    background: none;
+}
+
+.ekoNav-navigation > ul li {
+    @apply relative transition-all
+}
+
+.ekoNav-navigation > ul li:hover,
+.active {
+    @apply transition-all after:transition-all text-ekonavLink after:content-[''] after:absolute after:bg-ekonavPurple after:w-full after:h-1 after:top-7 after:left-0 after:bottom-0 after:rounded-t
+}
+
+.listIcon {
+    @apply fill-[#8B899A]
+}
+
+.gridToList:after {
+    content: '';
+    @apply absolute bg-white border border-[#DCDBE0] rounded-lg h-10 w-10 transition shadow-sm left-0
+}
+
+#gridToList:checked + .gridToList:after {
+    transform: translateX(100%);
+    @apply border-[#DCDBE0] bg-white
+}
+
+#gridToList:checked + .gridToList {
+    @apply bg-[#F4F2F8] border-[#DCDBE0]
+}
+
+#gridToList:checked + .gridToList > .gridIcon {
+    @apply fill-[#8B899A]
+}
+
+#gridToList:checked + .gridToList > .listIcon {
+    @apply fill-ekonavGray
+}
+
+.gridToList svg {
+    @apply z-50
+}
+
+.calculated {
+    height: calc(100vh - theme('spacing.28'));
+}
